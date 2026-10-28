@@ -119,3 +119,10 @@ section.hero { padding-top: 96px; }
 .back { display: inline-block; margin-bottom: 24px; font-size: 15px; }
 .foot { margin-top: 56px; }
 .post h2 { font-size: 24px; margin: 40px 0 8px; }
+
+.log { max-width: 760px; }
+section.log-head { padding-top: 72px; }
+.log-head h1 { margin-bottom: 12px; }
+.entries { padding-top: 32px !important; }
+.post-link.pending { opacity: 0.75; border-style: dashed; }
+.logo { white-space: nowrap; }
