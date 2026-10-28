@@ -35,7 +35,7 @@
       <li>Connect with just the USB cable, so Wi-Fi isn't needed.</li>
       <li>Use the LED matrix as a face that shows what the AI is doing.</li>
     </ul>
-    <figure class="photo"><div class="photo-slot">Photo coming soon</div><figcaption>The UNO Q board</figcaption></figure>
+    <figure class="photo"><img src="img/quno-setup.jpg" alt="The Arduino UNO Q plugged into a MacBook by USB, with the Quno chat open in the terminal behind it" loading="lazy"><figcaption>Quno: the UNO Q on a single USB cable, with its own AI running in the terminal behind it</figcaption></figure>
 
     <h2>Where the ideas came from</h2>
     <p>The starting point was the Arduino Project Hub guide "Build Smarter with Claude Code &amp; Ollama on UNO Q". It showed that the UNO Q can run Ollama, and it paired it with Claude Code as a coding helper.</p>
@@ -58,8 +58,9 @@
       <li><strong>Made a one-line login.</strong> Typing <code>ssh quno@192.168.7.1</code> on any computer opens Quno straight away, with a clean screen.</li>
       <li><strong>Built the LED faces in Arduino App Lab.</strong> There's a smiley for ready, moving dots for thinking, and a sad face (my own design) for errors. The chat app switches between them.</li>
     </ol>
-    <figure class="photo"><div class="photo-slot">Photo coming soon</div><figcaption>Quno running in the terminal</figcaption></figure>
-    <figure class="photo"><div class="photo-slot">Photo coming soon</div><figcaption>The LED faces</figcaption></figure>
+    <figure class="photo"><img src="img/quno-terminal.jpg" alt="Terminal showing the Quno banner and a short chat with llama3.2:3b" loading="lazy"><figcaption>Quno running in the terminal. Each reply shows its speed: 1.7 tokens per second and 49 seconds for the first answer</figcaption></figure>
+    <figure class="photo"><img src="img/led-states.jpg" alt="Six 13x8 LED matrix patterns: ready, three thinking frames, error and off" loading="lazy"><figcaption>The LED states: ready, three thinking frames, error and off</figcaption></figure>
+    <figure class="photo"><img src="img/error-face-versions.jpg" alt="Three versions of the error face: an X, a lopsided frown, and the fixed sad face" loading="lazy"><figcaption>The error face took three goes: an X first, then my own frown (lopsided), then the fixed sad face</figcaption></figure>
 
     <h2>What I struggled to understand</h2>
     <div class="table-wrap">
@@ -106,7 +107,6 @@
       </table>
     </div>
     <p>Next, I'd like to control a robot arm by typing to Quno, starting with a single SG90 servo. I might also add Claude as an optional online mode, kept separate from my offline chats.</p>
-    <figure class="photo"><div class="photo-slot">Photo coming soon</div><figcaption>The finished setup</figcaption></figure>
 
     <a class="back" href="../index.html">← All entries</a>
   </main>
