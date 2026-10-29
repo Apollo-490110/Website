@@ -49,14 +49,6 @@
     </ul>
 
     <h2>How it was built</h2>
-    <ol class="steps">
-      <li><strong>Installed Ollama and llama3.2:3b on the board.</strong> The download failed at first because the disk was full. Clearing old App Lab files and moving the models to a bigger partition fixed it.</li>
-      <li><strong>Built the Quno chat app.</strong> It's a small Python program that runs on the board. It has a chat mode, a coding mode, a model switcher, and shows how fast each reply was.</li>
-      <li><strong>Tried to make Terminal open by itself on plug-in.</strong> The board can't pretend to be a keyboard, so I dropped this idea.</li>
-      <li><strong>Set up USB networking.</strong> The board now appears as a network adapter over the cable at <code>192.168.7.1</code>. It needed one extra fix to keep working after a restart.</li>
-      <li><strong>Made a one-line login.</strong> Typing <code>ssh quno@192.168.7.1</code> on any computer opens Quno straight away, with a clean screen.</li>
-      <li><strong>Built the LED faces in Arduino App Lab.</strong> There's a smiley for ready, moving dots for thinking, and a sad face (my own design) for errors. The chat app switches between them.</li>
-    </ol>
     <figure class="photo"><img src="img/quno-terminal.jpg" alt="Terminal showing the Quno banner and a short chat with llama3.2:3b" loading="lazy"><figcaption>Quno running in the terminal. Each reply shows its speed: 1.7 tokens per second and 49 seconds for the first answer</figcaption></figure>
     <figure class="photo"><img src="img/led-states.jpg" alt="Six 13x8 LED matrix patterns: ready, three thinking frames, error and off" loading="lazy"><figcaption>The LED states: ready, three thinking frames, error and off</figcaption></figure>
     <figure class="photo"><img src="img/error-face-versions.jpg" alt="Three versions of the error face: an X, a lopsided frown, and the fixed sad face" loading="lazy"><figcaption>The error face took three goes: an X first, then my own frown (lopsided), then the fixed sad face</figcaption></figure>
