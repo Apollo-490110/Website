@@ -55,34 +55,11 @@
     <figure class="photo"><img src="img/led-states.jpg" alt="Six 13x8 LED matrix patterns: ready, three thinking frames, error and off" loading="lazy"><figcaption>The first set of LED states: ready, three thinking frames, the original X error face, and off</figcaption></figure>
     <figure class="photo"><img src="img/error-face-versions.jpg" alt="Three versions of the error face: an X, a lopsided frown, and the fixed sad face" loading="lazy"><figcaption>The error face took three goes: an X first, then my own frown (lopsided), then the fixed sad face</figcaption></figure>
 
-    <h2>What I struggled to understand</h2>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>What confused me</th><th>What made it click</th></tr></thead>
-        <tbody>
-          <tr><td>Which terminal I was typing in</td><td>I sometimes ran board commands on my Mac and the other way round. Checking the prompt first solved it: <code>arduino@Quno</code> means the board.</td></tr>
-          <tr><td>What ssh actually does</td><td>When I connect, my computer is just a screen and keyboard. The AI runs entirely on the board's own hardware.</td></tr>
-          <tr><td>Why a new computer asks to "Allow accessory"</td><td>Each computer checks a new USB device once, and ssh checks the board's identity once. After that it's quiet.</td></tr>
-          <tr><td>The two halves of the board</td><td>Linux runs the AI and the chat. The microcontroller runs the sketch that draws the faces. They talk through the Arduino "Bridge".</td></tr>
-          <tr><td>Why the app needed a Python file</td><td>An App Lab app has a sketch half and a Python half. The Python only had to keep the app alive, which takes 2 lines.</td></tr>
-          <tr><td>Why the faces vanished after unplugging</td><td>An App Lab app only starts by itself if "Run at startup" is switched on.</td></tr>
-          <tr><td>Why the faces didn't change during chat at first</td><td>I had copied an older version of the chat app onto the board.</td></tr>
-          <tr><td>The LED code</td><td>7 means full brightness. A <code>for</code> loop draws a line of pixels, and rows count from 0 at the top.</td></tr>
-          <tr><td>Offline vs online AI</td><td>Quno never sends my chats anywhere. An online AI like Claude would need Wi-Fi and an API key, and wouldn't know about my offline chats.</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h2>Things I learned</h2>
-    <ul>
-      <li><strong>Small boards can run real AI, slowly.</strong> llama3.2:3b manages about 1.7 tokens (word pieces) per second, so a short answer takes about 40 seconds. It's slow but completely private.</li>
-      <li><strong>Storage matters.</strong> AI models are big, and a full disk stops everything. Knowing where space lives on the board saved the project.</li>
-      <li><strong>Linux basics.</strong> I learned about logins, services that start at boot, and how to copy files to the board.</li>
-      <li><strong>ssh and USB networking.</strong> A USB cable can carry a network connection, which is why ssh works without Wi-Fi.</li>
-      <li><strong>Arduino sketches.</strong> I learned how a sketch draws on an LED matrix pixel by pixel, and designed my own error face.</li>
-      <li><strong>How the two halves of the UNO Q talk.</strong> Linux sends a message through the Bridge, and the sketch reacts.</li>
-      <li><strong>Security habits.</strong> My password got shown in a chat once, so I changed it straight away.</li>
-    </ul>
+    <h2>What I learned and struggled with</h2>
+    <p>Some of the trickiest moments were the simplest ones. More than once I ran a board command on my Mac, or a Mac command on the board, before I got into the habit of checking the prompt first: <code>arduino@Quno</code> means I'm on the board. The first time a new computer connects, it asks to "Allow accessory" and ssh asks to confirm the board's identity. That threw me at first, but each computer only checks once and after that it's quiet. I also learned the basics of Linux along the way: logins, services that start at boot, how to copy files onto the board, and how a USB cable can carry a network connection, which is why ssh works without Wi-Fi.</p>
+    <p>Storage was the biggest lesson. AI models are big and a full disk stops everything, so knowing where the space actually lives on the board is what saved the project. Speed was the other eye-opener. llama3.2:3b manages about 1.7 tokens (word pieces) per second, so a short answer takes around 40 seconds. It's slow, but it's completely private: Quno never sends my chats anywhere, whereas an online AI would need Wi-Fi and an API key and wouldn't know about my offline chats.</p>
+    <p>The LED faces had their own set of problems. An App Lab app has a sketch half and a Python half, and I couldn't see why it needed the Python file until I found it only has to keep the app alive, which takes 2 lines. The faces vanished every time I unplugged the board until I switched on "Run at startup", and for a while they didn't change during a chat at all, because I'd copied an older version of the chat app onto the board. Writing the sketch taught me how the matrix is drawn pixel by pixel: 7 means full brightness, a <code>for</code> loop draws a line, and rows count from 0 at the top. My first error face was an X. I swapped it for a frown of my own design, which came out lopsided the first time, so the final sad face is the fixed version.</p>
+    <p>One last habit I picked up: my password got shown in a chat once, so I changed it straight away.</p>
 
     <h2>Final outcome</h2>
     <p>Quno works the way I imagined. I plug the board into any computer, type <code>ssh quno@192.168.7.1</code>, and I'm chatting with an AI that runs entirely on the Arduino, with no internet. The LED matrix smiles when it's ready, shows moving dots while it thinks, and frowns if something goes wrong.</p>
