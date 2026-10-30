@@ -160,3 +160,9 @@ section.log-head { padding-top: 64px; }
 }
 .carousel-nav { display: flex; gap: 8px; margin-top: 12px; }
 .carousel-nav .btn { cursor: pointer; background: none; font-size: 16px; padding: 6px 16px; }
+
+/* Side-by-side photos in a log entry */
+.photo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin: 32px 0; }
+.photo-row .photo { margin: 0; }
+.photo-row .photo img { aspect-ratio: 3 / 4; object-fit: cover; }
+.photo-row.phones .photo img { aspect-ratio: auto; }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waxa: Turning a Lockdown Card Game into an App | Riain Dunn</title>
+  <meta name="description" content="A four-board poker game my friend Luc made up over lockdown, rebuilt as an app with Pass'n'Play and an AI opponent.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="logo">riain<span>_</span>log</a>
+      <nav>
+        <a href="../index.html">Projects</a>
+        <a href="../log.html">Log</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap post">
+    <a class="back" href="../log.html">← All entries</a>
+    <p class="when">Log 002 · 30 Oct 2026</p>
+    <h1>Waxa: Turning a Lockdown Card Game into an App</h1>
+
+    <h2>Where the idea came from</h2>
+    <p>Waxa is a poker game my friend Luc made up over lockdown. Luc had always been in the poker scene, and he introduced me to it when we worked together at Grosvenor Casino. Since 2021 I've played it on every holiday I've been on, teaching it to friends, family and strangers I've met along the way. If you understand poker, or card games in general, it's really easy to pick up. When I left Newcastle, I told Luc I'd turn it into an app so we could still play.</p>
+    <div class="photo-row">
+      <figure class="photo"><img src="img/waxa-2023-06.jpg" width="1058" height="1400" alt="Four Waxa boards laid out on a white table in the sun"><figcaption>June 2023</figcaption></figure>
+      <figure class="photo"><img src="img/waxa-2024-07.jpg" width="958" height="1400" alt="A game of Waxa on a hotel balcony at sunset"><figcaption>July 2024</figcaption></figure>
+      <figure class="photo"><img src="img/waxa-2025-04.jpg" width="1242" height="1264" alt="Waxa boards on a round table with a player holding their hand"><figcaption>April 2025</figcaption></figure>
+    </div>
+
+    <h2>How it works</h2>
+    <ul>
+      <li>2 or 3 players, one 52-card deck.</li>
+      <li>Four boards are dealt. You can see the four flops, but the turns and rivers stay face down.</li>
+      <li>Everyone gets 10 cards and puts 2 on each board. The 2 you don't use are discarded.</li>
+      <li>Boards are revealed one at a time, and the best poker hand on each board wins a point.</li>
+      <li>Win all four on your own and you scoop: 5 points instead of 4.</li>
+    </ul>
+
+    <h2>How it was built</h2>
+    <p>I built it with Claude. I made Pass'n'Play first, so I could test the mechanics by passing one phone around the table. A cover screen hides each player's cards while the device changes hands. Once the game worked, I added an AI opponent. For every pair of cards in its hand, it plays out a few hundred random turns, rivers and opponent hands on each board. Then it picks the four pairs that win it the most points.</p>
+
+    <h2>What I struggled with</h2>
+    <p>The hardest part was the interface. Four boards, ten cards and two players' hands is a lot to fit on one screen, and I wanted it to be comfortable and easy to understand. You can drag a card onto a board or tap a card and then a board, sort your hand by rank or suit, and send a card back by tapping it.</p>
+    <div class="photo-row phones">
+      <figure class="photo"><img src="img/waxa-play.jpg" width="860" height="1800" alt="The Waxa app mid-round: four boards with flops showing and the player's remaining cards below"><figcaption>Setting cards: tap a card, then a board</figcaption></figure>
+      <figure class="photo"><img src="img/waxa-done.jpg" width="860" height="1800" alt="The Waxa app at showdown against the AI, with each board's winning hand marked"><figcaption>Showdown against the AI: a 2–2 round</figcaption></figure>
+    </div>
+
+    <h2>What's next</h2>
+    <p>Online rooms with a code, so Luc and I can play from different places. First I need somewhere to host it, either on the App Store or as a website.</p>
+  </main>
+
+  <footer class="wrap foot">
+    <p>© 2026 Riain Dunn</p>
+  </footer>
+</body>
+</html>
