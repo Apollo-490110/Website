@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Riain Dunn</title>
+  <meta name="description" content="Projects by Riain Dunn: embedded systems, electronics and on-device AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="logo">riain<span>_</span>log</a>
+      <nav>
+        <a href="index.html">Log</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap log">
+    <section class="log-head">
+      <h1>Projects</h1>
+      <p class="lead">A quick look at what I've built. Full write-ups are in the log.</p>
+    </section>
+
+    <section class="entries project-list">
+      <article class="card">
+        <div class="tag">Personal project</div>
+        <h3>Quno: an offline AI on an Arduino UNO Q</h3>
+        <p>An Arduino UNO Q that runs its own language model (llama3.2:3b through Ollama) with no internet. Plug it into any computer with a USB cable, type one ssh command, and chat with it. The built-in LED matrix shows a face for ready, thinking and error.</p>
+        <p class="stack"><span>Arduino</span><span>UNO Q</span><span>Ollama</span><span>Python</span><span>Linux</span><span>Edge AI</span></p>
+        <a class="more" href="log/quno.html">Read the build log →</a>
+      </article>
+
+      <article class="card">
+        <div class="tag">Final year project</div>
+        <h3>VLC-based baby monitoring system</h3>
+        <p>A wearable health monitor that measured heart rate and temperature and sent the data wirelessly using Visible Light Communication (data carried by light). I designed the embedded hardware, wrote the firmware, integrated the sensors and built the real-time data link.</p>
+        <p class="stack"><span>Embedded C</span><span>Sensors</span><span>VLC</span><span>Firmware</span></p>
+      </article>
+
+      <article class="card">
+        <div class="tag">University team project</div>
+        <h3>NXP Cup self-driving car</h3>
+        <p>Wrote the servo steering control code for an autonomous model car as part of a three-person team, then merged everyone's work into a finished prototype on deadline.</p>
+        <p class="stack"><span>ARM KL25Z</span><span>C</span><span>Control</span><span>Teamwork</span></p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>© 2026 Riain Dunn</p>
+  </footer>
+</body>
+</html>
