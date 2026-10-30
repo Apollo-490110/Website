@@ -28,6 +28,28 @@
       <p class="lead">Riain Dunn. BEng (Hons) Electrical Engineering, Northumbria University. Based in Stokesley, North Yorkshire.</p>
     </section>
 
+    <section id="life" class="wrap">
+      <h2>My life in ten photos</h2>
+      <div class="carousel">
+        <div class="track" tabindex="0" aria-label="My life in ten photos">
+        <figure class="slide"><img src="img/life/01-motorbike.jpg" alt="Motorbike parked on the seafront with my helmet and gloves" width="787" height="1400"><figcaption>01 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/02-cricket-bat.jpg" alt="My cricket bat and pads at the pavilion" width="787" height="1400"><figcaption>02 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/03-cricket-nets.jpg" alt="Batting in the indoor nets" width="891" height="1400"><figcaption>03 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/04-golf.jpg" alt="Teeing off on a clifftop golf course by the sea" width="1050" height="1400"><figcaption>04 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/05-mascot.jpg" alt="Getting a hug from a football mascot" width="763" height="1400"><figcaption>05 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/06-poker.jpg" alt="At the poker table with my chips and cards" width="1050" height="1400"><figcaption>06 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/07-karaoke.jpg" alt="Karaoke with a friend" width="770" height="1400"><figcaption>07 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/08-tank.jpg" alt="Standing next to a tank at a museum" width="1050" height="1400"><figcaption>08 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/09-holiday.jpg" alt="Holiday selfie in my club jersey" width="787" height="1400"><figcaption>09 / 10</figcaption></figure>
+        <figure class="slide"><img src="img/life/10-pokemon.jpg" alt="Holding up a gold Pokémon card" width="787" height="1400"><figcaption>10 / 10</figcaption></figure>
+        </div>
+        <div class="carousel-nav">
+          <button type="button" class="btn" data-dir="-1" aria-label="Previous photo">←</button>
+          <button type="button" class="btn" data-dir="1" aria-label="Next photo">→</button>
+        </div>
+      </div>
+    </section>
+
     <section id="volunteering" class="wrap">
       <h2>Volunteering</h2>
       <article class="card">
@@ -93,5 +115,16 @@
   <footer class="wrap foot">
     <p>© 2026 Riain Dunn</p>
   </footer>
+  <script>
+    document.querySelectorAll('.carousel').forEach(function (c) {
+      var track = c.querySelector('.track');
+      c.querySelectorAll('[data-dir]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var slide = track.querySelector('.slide');
+          track.scrollBy({ left: Number(b.dataset.dir) * (slide.offsetWidth + 16), behavior: 'smooth' });
+        });
+      });
+    });
+  </script>
 </body>
 </html>
