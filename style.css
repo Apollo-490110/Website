@@ -149,3 +149,4 @@ section.log-head { padding-top: 72px; }
 .ok { background: var(--accent-soft); color: var(--accent); }
 .no { background: var(--line); color: var(--muted); }
 @media (max-width: 560px) { .post td:first-child { width: 40%; } }
+.photo img { height: auto; }
