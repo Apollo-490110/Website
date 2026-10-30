@@ -31,8 +31,8 @@
     <section id="life" class="wrap">
       <h2>My life in ten photos</h2>
       <div class="carousel">
-        <div class="track" tabindex="0" aria-label="My life in ten photos">
-        <figure class="slide"><img src="img/life/01-motorbike.jpg" alt="Motorbike parked on the seafront with my helmet and gloves" width="787" height="1400"><figcaption>01 · Biker</figcaption></figure>
+        <div class="track" aria-label="My life in ten photos" aria-live="polite">
+        <figure class="slide active"><img src="img/life/01-motorbike.jpg" alt="Motorbike parked on the seafront with my helmet and gloves" width="787" height="1400"><figcaption>01 · Biker</figcaption></figure>
         <figure class="slide"><img src="img/life/02-cricket-bat.jpg" alt="My cricket bat and pads at the pavilion" width="787" height="1400"><figcaption>02 · Summer cricketer</figcaption></figure>
         <figure class="slide"><img src="img/life/03-cricket-nets.jpg" alt="Batting in the indoor nets" width="891" height="1400"><figcaption>03 · Winter cricketer</figcaption></figure>
         <figure class="slide"><img src="img/life/04-golf.jpg" alt="Teeing off on a clifftop golf course by the sea" width="1050" height="1400"><figcaption>04 · Mid handicapper</figcaption></figure>
@@ -117,13 +117,22 @@
   </footer>
   <script>
     document.querySelectorAll('.carousel').forEach(function (c) {
-      var track = c.querySelector('.track');
+      var slides = c.querySelectorAll('.slide');
+      var i = 0, timer;
+      var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function show(n) {
+        slides[i].classList.remove('active');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('active');
+      }
+      function start() { if (!still) timer = setInterval(function () { show(i + 1); }, 4000); }
+      function restart() { clearInterval(timer); start(); }
       c.querySelectorAll('[data-dir]').forEach(function (b) {
-        b.addEventListener('click', function () {
-          var slide = track.querySelector('.slide');
-          track.scrollBy({ left: Number(b.dataset.dir) * (slide.offsetWidth + 16), behavior: 'smooth' });
-        });
+        b.addEventListener('click', function () { show(i + Number(b.dataset.dir)); restart(); });
       });
+      c.addEventListener('mouseenter', function () { clearInterval(timer); });
+      c.addEventListener('mouseleave', restart);
+      start();
     });
   </script>
 </body>
