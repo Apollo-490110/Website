@@ -166,3 +166,8 @@ section.log-head { padding-top: 64px; }
 .photo-row .photo { margin: 0; }
 .photo-row .photo img { aspect-ratio: 3 / 4; object-fit: cover; }
 .photo-row.phones .photo img { aspect-ratio: auto; }
+
+/* Two portrait items side by side at equal height (flex = width/height ratio) */
+.media-pair { display: flex; gap: 12px; margin: 32px 0; align-items: flex-start; }
+.media-pair .photo { margin: 0; min-width: 0; }
+@media (max-width: 600px) { .media-pair { flex-direction: column; } .media-pair .photo { flex: none !important; width: 100%; } }
