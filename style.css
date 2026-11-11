@@ -124,7 +124,7 @@ section.log-head { padding-top: 64px; }
 .post code { font: 500 0.86em "IBM Plex Mono", monospace; background: var(--code-bg); padding: 1px 5px; }
 .back { display: inline-block; margin-bottom: 24px; font: 500 13px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.06em; }
 .photo { margin: 32px 0; }
-.photo img { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
+.photo img, .photo video { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
 .photo figcaption { font: 400 13px "IBM Plex Mono", monospace; color: var(--muted); margin-top: 8px; }
 .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
 .post table { border-collapse: collapse; width: 100%; font-size: 16px; }
