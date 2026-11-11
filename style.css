@@ -171,3 +171,12 @@ section.log-head { padding-top: 64px; }
 .media-pair { display: flex; gap: 12px; margin: 32px 0; align-items: flex-start; }
 .media-pair .photo { margin: 0; min-width: 0; }
 @media (max-width: 600px) { .media-pair { flex-direction: column; } .media-pair .photo { flex: none !important; width: 100%; } }
+
+/* "Live in the lab" banner on the home page */
+.live-lab { margin-top: 40px; padding: 20px 24px; background: var(--band); color: var(--band-text); border-left: 4px solid var(--mist); }
+.live-lab h2 { margin: 4px 0 2px; font-size: 26px; color: var(--band-text); border: 0; padding: 0; text-transform: none; letter-spacing: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; font-weight: 600; }
+.live-label, .live-status { margin: 0; font: 500 12px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mist); }
+.live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--paper); margin-right: 8px; vertical-align: 1px; animation: live-pulse 1.6s ease-in-out infinite; }
+@keyframes live-pulse { 50% { opacity: 0.25; } }
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+.live-lab + .log-head { padding-top: 40px; }
