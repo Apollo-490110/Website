@@ -35,7 +35,8 @@
     </section>
 
     <section class="collage">
-      <figure class="c-item c-big active">
+      <div class="c-track">
+      <figure class="c-item c-big">
         <a class="c-img" href="log/quno.html"><img src="img/home/quno.jpg" width="1400" height="1279" alt="An Arduino UNO Q held up in front of a laptop running the Quno chat in a terminal"></a>
         <figcaption class="c-plate">
           <p class="c-label">Fig. 01 · Personal project</p>
@@ -78,9 +79,11 @@
           <p class="stack"><span>ARM KL25Z</span><span>C</span><span>Control</span><span>Teamwork</span></p>
         </figcaption>
       </figure>
+      </div>
       <div class="carousel-nav c-nav">
         <button type="button" class="btn" data-dir="-1" aria-label="Previous project">←</button>
         <button type="button" class="btn" data-dir="1" aria-label="Next project">→</button>
+        <div class="c-dots" aria-hidden="true"></div>
       </div>
     </section>
   </main>
@@ -92,23 +95,39 @@
     (function () {
       var c = document.querySelector('.collage');
       if (!c) return;
-      var items = c.querySelectorAll('.c-item');
-      var i = 0, timer;
+      var track = c.querySelector('.c-track');
+      var items = track.querySelectorAll('.c-item');
+      var dots = c.querySelector('.c-dots');
       var phone = window.matchMedia('(max-width: 760px)');
       var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function show(n) {
-        items[i].classList.remove('active');
-        i = (n + items.length) % items.length;
-        items[i].classList.add('active');
+      var timer;
+      items.forEach(function () { dots.appendChild(document.createElement('span')); });
+      function current() {
+        var mid = track.scrollLeft + track.clientWidth / 2, best = 0, d = 1e9;
+        items.forEach(function (it, k) {
+          var dd = Math.abs(it.offsetLeft + it.offsetWidth / 2 - mid);
+          if (dd < d) { d = dd; best = k; }
+        });
+        return best;
       }
-      function start() { clearInterval(timer); if (phone.matches && !still) timer = setInterval(function () { show(i + 1); }, 4000); }
+      function go(n) {
+        n = (n + items.length) % items.length;
+        var it = items[n];
+        track.scrollTo({ left: it.offsetLeft - (track.clientWidth - it.offsetWidth) / 2 });
+      }
+      function mark() {
+        var k = current();
+        dots.querySelectorAll('span').forEach(function (d, j) { d.classList.toggle('on', j === k); });
+      }
+      function start() { clearInterval(timer); if (phone.matches && !still) timer = setInterval(function () { go(current() + 1); }, 5000); }
       c.querySelectorAll('[data-dir]').forEach(function (b) {
-        b.addEventListener('click', function () { show(i + Number(b.dataset.dir)); start(); });
+        b.addEventListener('click', function () { go(current() + Number(b.dataset.dir)); start(); });
       });
-      c.addEventListener('touchstart', function () { clearInterval(timer); }, { passive: true });
-      c.addEventListener('touchend', start, { passive: true });
+      track.addEventListener('scroll', mark, { passive: true });
+      track.addEventListener('touchstart', function () { clearInterval(timer); }, { passive: true });
+      track.addEventListener('touchend', start, { passive: true });
       if (phone.addEventListener) phone.addEventListener('change', start);
-      start();
+      mark(); start();
     })();
   </script>
 </body>
